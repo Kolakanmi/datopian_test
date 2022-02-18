@@ -51,18 +51,18 @@ async function webScrapping() {
     // Insert year to data
     insertYear(dataArray, 2018)
 
+    //Sort data by column
     dataArray = sortByIndex(dataArray, 'Road deaths per million Inhabitants')
 
-    
-
+    //Convert array to csv string
     const csvString = convertArrayToCSV(dataArray.slice(1), {
       header: dataArray[0],
       separator: ','
     });
 
-    // console.log(csvFromArrayOfArrays);
-    console.log(process.cwd());
     const csvFile = process.cwd() + '/road_safety/data/output.csv';
+
+    // Create csv file
     createCSVFile(csvFile, csvString);
     
   } catch (error) {
@@ -70,6 +70,7 @@ async function webScrapping() {
   }
 }
 
+// Drop columns
 function dropColumns(array, headers) {
   const index = getIndicesFromHeaderValues(array[0], ...headers)
   return array.map(row => {
@@ -77,6 +78,7 @@ function dropColumns(array, headers) {
   })
 }
 
+// Rename headers
 function renameHeaders(array, newHeadersObj) {
   array[0].forEach((cell, i) => {
     if (newHeadersObj[i]) {
@@ -86,6 +88,7 @@ function renameHeaders(array, newHeadersObj) {
   return array
 }
 
+// Convert column numeric values from string to float
 function convertColumnValueToFloat(array, headers) {
   const rowIndex = getIndicesFromHeaderValues(array[0], ...headers)
   array.forEach((row, idx) => {
@@ -97,6 +100,7 @@ function convertColumnValueToFloat(array, headers) {
   })
 }
 
+// Insert year to data
 function insertYear(array, year) {
   array.forEach((row, idx) => {
     if (idx == 0) {
@@ -108,6 +112,7 @@ function insertYear(array, year) {
   })
 }
 
+// Sort data by column
 function sortByIndex(array, column) {
   const index = getIndicesFromHeaderValues(array[0], column)[0]
   return array.sort((a, b) => {
@@ -115,6 +120,7 @@ function sortByIndex(array, column) {
   })
 }
 
+// Create csv file
 function createCSVFile(path, csvString) {
   fs.writeFile(path, csvString, (err) => {
     if (err) throw err;
@@ -122,6 +128,7 @@ function createCSVFile(path, csvString) {
   });
 }
 
+//Get array of index from header values
 function getIndicesFromHeaderValues(header, ...values) {
   const ans = header.reduce((acc, cell, i) => {
     if (values.map(item => {
