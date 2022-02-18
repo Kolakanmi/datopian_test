@@ -39,7 +39,7 @@ async function webScrapping() {
     )
 
     //Rename some of the headers
-    dataArray = renameHeaders(dataArray, {1: 'Area', 2: 'Population', 3: 'GDP per capita', 4: 'Population density', 5: 'Vehicle ownership', 6: 'Total road deaths', 7: 'Road deaths per million Inhabitants'})
+    dataArray = renameHeaders(dataArray, {1: 'Area', 2: 'Population', 3: 'GDP per capita', 4: 'Population density', 5: 'Vehicle ownership', 6: 'Total road deaths', 7: 'Road deaths per Million Inhabitants'})
     
     //Convert column numeric values from string to float
     convertColumnValueToFloat(dataArray,
@@ -124,7 +124,7 @@ function sortByIndex(array, column) {
 function createCSVFile(path, csvString) {
   fs.writeFile(path, csvString, (err) => {
     if (err) throw err;
-    console.log('The file has been saved!');
+    console.log('The file has been saved in ' + path);
   });
 }
 

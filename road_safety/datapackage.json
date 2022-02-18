@@ -1,0 +1,85 @@
+{
+  "title": "European Union Road Safety Facts and Figures",
+  "name": "european-union-road-safety-facts-and-figures",
+  "description": "Web scrapping data from wikipedia into csv dataset file.",
+  "homepage": "https://github.com/Kolakanmi/datopian_test",
+  "licenses": [
+    {
+      "path": "https://github.com/Kolakanmi/datopian_test/blob/master/LICENSE",
+      "title": "MIT"
+    }
+  ],
+  "contributors": [
+    {
+      "title": "Kolakanmi Apanisile",
+      "role": "author"
+    }
+  ],
+  "resources": [
+    {
+      "name": "output.csv",
+      "path": "https://github.com/Kolakanmi/datopian_test/blob/master/road_safety/data/output.csv",
+      "profile": "tabular-data-resource",
+      "title": "Output",
+      "description": "Output of the scrapping process.",
+      "schema": {
+        "fields": [
+          {
+            "name": "Country",
+            "type": "string",
+            "format": "default",
+            "title": "Country"
+          },
+          {
+            "name": "Year",
+            "type": "integer",
+            "format": "default",
+            "title": "Year"
+          },
+          {
+            "name": "Area",
+            "type": "number",
+            "format": "default",
+            "title": "Area"
+          },
+          {
+            "name": "Population",
+            "type": "integer",
+            "format": "default",
+            "title": "Population"
+          },
+          {
+            "name": "GDP per capita",
+            "type": "integer",
+            "format": "default",
+            "title": "GDP per capita"
+          },
+          {
+            "name": "Population density",
+            "type": "integer",
+            "format": "default",
+            "title": "Population density"
+          },
+          {
+            "name": "Vehicle ownership",
+            "type": "integer",
+            "format": "default",
+            "title": "Vehicle ownership"
+          },
+          {
+            "name": "Total road deaths",
+            "type": "integer",
+            "format": "default",
+            "title": "Total road deaths"
+          },
+          {
+            "name": "Road deaths per Million Inhabitants",
+            "type": "integer",
+            "format": "default",
+            "title": "Road deaths per Million Inhabitants"
+          }
+        ]
+      }
+    }
+  ]
+}
